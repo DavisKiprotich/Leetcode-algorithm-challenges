@@ -1,0 +1,26 @@
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+    let result = [];
+    if(numRows < 2){
+        return s;
+    }
+    for(let i = 0; i < numRows;i++){
+        let j = i;
+        while(j < s.length){
+            result.push(s[j]);
+            //Nos in the middle
+        if(i !== 0 && i !== numRows - 1){
+            let k = (numRows - i)* 2 - 1- 1 + j;
+            if(k < s.length){
+                result.push(s[k]);
+            }
+        }
+        j += numRows * 2 - 1 - 1;
+        }
+    }
+    return result.join('');
+};
